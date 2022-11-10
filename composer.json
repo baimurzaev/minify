@@ -1,0 +1,53 @@
+{
+  "name": "baimurzaev/minify",
+  "type": "library",
+  "description": "Minify code a before deployment ",
+  "license": "MIT",
+  "keywords": [
+    "hawk",
+    "hawk-php",
+    "prepare",
+    "deploy",
+    "minify",
+    "php-deploy",
+    "deployment",
+    "minify",
+    "code"
+  ],
+  "homepage": "https://github.com/baimurzaev",
+  "authors": [
+    {
+      "name": "Ruslan Baimurzaev"
+    }
+  ],
+  "require-dev": {
+    "phpunit/phpunit": "^7"
+  },
+  "autoload": {
+    "psr-4": {
+      "Hawk\\Minify\\": "src/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Hawk\\Tests\\Minify\\": "tests"
+    }
+  },
+  "require": {
+    "php": ">=5.4.0",
+    "ext-simplexml": "*"
+  },
+  "bin": [
+    "bin/minify"
+  ],
+  "scripts": {
+    "deploy": [
+      "@minify"
+    ],
+    "test": [
+      "@phpunit"
+    ],
+    "phpunit": "phpunit",
+    "minify": "minify"
+  }
+}

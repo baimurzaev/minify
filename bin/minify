@@ -1,0 +1,27 @@
+#!/usr/bin/env php
+<?php
+
+$files = [
+    __DIR__ . '/../../../autoload.php',
+    __DIR__ . '/../vendor/autoload.php'
+];
+
+foreach ($files as $file) {
+    if (file_exists($file)) {
+        require $file;
+        break;
+    }
+}
+
+$minify = new \Hawk\Minify\MinifyStarter();
+
+echo PHP_EOL . "#" . $minify->getSeparator() . "
+#    █───█─███─█──█─███─███─██─██    
+#    ██─██──█──██─█──█──█────███     
+#    █─█─█──█──█─██──█──███───█      
+#    █───█──█──█──█──█──█─────█      
+#    █───█─███─█──█─███─█─────█      
+#    ─────────────────────────█    
+#" . $minify->getSeparator() . PHP_EOL;
+$minify->squeeze();
+echo $minify->getSeparator() . PHP_EOL;

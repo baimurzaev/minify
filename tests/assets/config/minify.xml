@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<config name="Minify">
+    <description>Minify code</description>
+    <pathFrom>src</pathFrom>
+    <pathTo>deploy</pathTo>
+    <extensions>
+        <ext>php</ext>
+        <ext>js</ext>
+        <ext>css</ext>
+    </extensions>
+</config>
