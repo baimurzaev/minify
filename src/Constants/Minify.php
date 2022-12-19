@@ -8,13 +8,9 @@
  * @link       https://github.com/baimurzaev/minify
  */
 
-namespace Hawk\Minify\Exceptions;
+namespace Hawk\Minify\Constants;
 
-/**
- * Class TerminateException
- * @package Hawk\Minify\Exceptions
- */
-final class TerminateException extends \Exception
+final class Minify
 {
-
+    public const SEPARATOR = "===================================================================================";
 }

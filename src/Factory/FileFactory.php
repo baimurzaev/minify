@@ -16,17 +16,15 @@ use Hawk\Minify\File;
  * Class FileFactory
  * @package Hawk\Minify\Factory
  */
-class FileFactory
+final class FileFactory
 {
     /**
      * @param string $filePathFrom
      * @param string $filePathTo
      * @return File
      */
-    public function createFile(string $filePathFrom, string $filePathTo)
+    public function createFile(string $filePathFrom, string $filePathTo): File
     {
-        $file = new File($filePathFrom, $filePathTo);
-
-        return $file->read();
+        return (new File($filePathFrom, $filePathTo))->read();
     }
 }

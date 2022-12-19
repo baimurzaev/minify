@@ -16,7 +16,7 @@ use Hawk\Minify\Exceptions\TerminateException;
  * Class MinifyStarter
  * @package Hawk\Minify
  */
-class MinifyStarter
+class Minify
 {
     const SEPARATOR = "===================================================================================";
 

@@ -16,13 +16,13 @@ use Hawk\Minify\Interfaces\HandlerInterface;
  * Class BreakHandler
  * @package Hawk\Minify\Handlers
  */
-class BreakHandler implements HandlerInterface
+final class BreakHandler implements HandlerInterface
 {
     /**
      * @param string $value
-     * @return mixed
+     * @return string
      */
-    public function process($value)
+    public function execute(string $value): string
     {
         return str_replace(array("\r\n", "\r", "\n"), " ", $value);
     }

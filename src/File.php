@@ -21,17 +21,17 @@ class File
     /**
      * @var array
      */
-    public static $units = ['b', 'kb', 'mb', 'gb'];
+    public static array $units = ['b', 'kb', 'mb', 'gb'];
 
     /**
      * @var string|null
      */
-    private $filePathFrom;
+    private ?string $filePathFrom;
 
     /**
      * @var string|null
      */
-    private $filePathTo;
+    private ?string $filePathTo;
 
     /**
      * @var resource|string
@@ -43,7 +43,7 @@ class File
      * @param string|null $filePathFrom
      * @param string|null $filePathTo
      */
-    public function __construct($filePathFrom = null, $filePathTo = null)
+    public function __construct(string $filePathFrom = null, string $filePathTo = null)
     {
         $this->filePathFrom = $filePathFrom;
         $this->filePathTo = $filePathTo;

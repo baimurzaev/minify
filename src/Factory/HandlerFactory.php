@@ -16,13 +16,13 @@ use Hawk\Minify\Interfaces\HandlerInterface;
  * Class HandlerFactory
  * @package Hawk\Minify\Factory
  */
-class HandlerFactory
+final class HandlerFactory
 {
     /**
      * @param string $name
      * @return HandlerInterface
      */
-    public function createHandler(string $name)
+    public function create(string $name): HandlerInterface
     {
         $className = "Hawk\\Minify\\Handlers\\" . ucfirst(strtolower($name)) . "Handler";
 

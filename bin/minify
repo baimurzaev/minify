@@ -1,6 +1,8 @@
 #!/usr/bin/env php
 <?php
 
+use Hawk\Minify\Constants\Minify;
+
 $files = [
     __DIR__ . '/../../../autoload.php',
     __DIR__ . '/../vendor/autoload.php'
@@ -13,15 +15,22 @@ foreach ($files as $file) {
     }
 }
 
-$minify = new \Hawk\Minify\MinifyStarter();
+$minify = new \Hawk\Minify\Minify();
 
-echo PHP_EOL . "#" . $minify->getSeparator() . "
-#    █───█─███─█──█─███─███─██─██    
-#    ██─██──█──██─█──█──█────███     
-#    █─█─█──█──█─██──█──███───█      
-#    █───█──█──█──█──█──█─────█      
-#    █───█─███─█──█─███─█─────█      
-#    ─────────────────────────█    
-#" . $minify->getSeparator() . PHP_EOL;
-$minify->squeeze();
-echo $minify->getSeparator() . PHP_EOL;
+echo PHP_EOL . "#" . Minify::SEPARATOR . "
+#    █───█──███──█──█──███──███──█───█    
+#    ██─██───█───██─█───█───█─────█─█     
+#    █─█─█───█───█─██───█───███────█      
+#    █───█───█───█──█───█───█─────█      
+#    █───█──███──█──█──███──█────█      
+#    ───────────────────────────█    
+#" . Minify::SEPARATOR . PHP_EOL;
+
+try {
+    $minify->squeeze();
+} catch (Throwable $e) {
+    echo PHP_EOL . "Error: {$e->getMessage()}" . PHP_EOL;
+    die();
+}
+
+echo Minify::SEPARATOR . PHP_EOL;

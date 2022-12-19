@@ -18,7 +18,7 @@ interface HandlerInterface
 {
     /**
      * @param string $value
-     * @return mixed
+     * @return string
      */
-    public function process($value);
+    public function execute(string $value): string;
 }

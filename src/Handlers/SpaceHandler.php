@@ -20,9 +20,9 @@ class SpaceHandler implements HandlerInterface
 {
     /**
      * @param string $value
-     * @return mixed|string|string[]|null
+     * @return string
      */
-    public function process($value)
+    public function execute(string $value):string
     {
         return preg_replace("/ {2,}/", " ", $value);
     }

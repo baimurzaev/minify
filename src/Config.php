@@ -26,13 +26,13 @@ class Config implements ArrayAccess, IteratorAggregate
     /**
      * @var array
      */
-    private $data = [];
+    private array $data = [];
 
     /**
      * Config constructor.
-     * @param string|array|null $settings
+     * @param array|string|null $settings
      */
-    public function __construct($settings = null)
+    public function __construct(array|string $settings = null)
     {
         $this->init($settings);
 
@@ -66,7 +66,7 @@ class Config implements ArrayAccess, IteratorAggregate
     /**
      * @param string|null $settings
      */
-    protected function init($settings)
+    protected function init(?string $settings)
     {
         if (is_string($settings) && file_exists($settings) === true) {
             $this->applyXmlConfig($settings);

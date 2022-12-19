@@ -16,19 +16,26 @@ use Hawk\Minify\Interfaces\HandlerInterface;
  * Class CommentsHandler
  * @package Hawk\Minify\Handlers
  */
-class CommentsHandler implements HandlerInterface
+final class CommentsHandler implements HandlerInterface
 {
+    private const REGEXP_ARRAY = [
+        "!/\*.*?\*/!s",
+        "/\/\/ .*(\n|\r\n)/",
+        "/# .*(\n|\r\n)/"
+    ];
+
     /**
      * Remove "*", "#", "//" (php comments)
      *
      * @param string $value
      * @return string
      */
-    public function process($value)
+    public function execute(string $value): string
     {
-        $value = preg_replace('!/\*.*?\*/!s', " ", $value);
-        $value = preg_replace("/\/\/ .*(\n|\r\n)/", " ", $value);
+        foreach (self::REGEXP_ARRAY as $regex) {
+            $value = preg_replace($regex, " ", $value);
+        }
 
-        return preg_replace("/# .*(\n|\r\n)/", " ", $value);
+        return $value;
     }
 }
